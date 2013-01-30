@@ -21,4 +21,13 @@
         <module>jmm-core</module>
         <module>jmm-webapp</module>
     </modules>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.mfriedenhagen.jmm</groupId>
+                <artifactId>jmm-core</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
