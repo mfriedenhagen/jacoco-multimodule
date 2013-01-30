@@ -6,13 +6,19 @@
         <artifactId>foss-parent</artifactId>
         <version>1.3.2</version>
     </parent>
-    <groupId>com.github.mfriedenhagen</groupId>
-    <artifactId>jacoco-multimodule-parent</artifactId>
+    <groupId>com.github.mfriedenhagen.jmm</groupId>
+    <artifactId>jmm-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>jacoco-multimodule Maven parent</name>
-    <url>http://maven.apache.org</url>
+    <name>jacoco-multimodule :: Parent</name>
+    <url>https://github.com/mfriedenhagen/jacoco-multimodule</url>
+    <scm>
+        <connection>scm:git:git://github.com/mfriedenhagen/jacoco-multimodule.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/mfriedenhagen/jacoco-multimodule.git</developerConnection>
+        <url>https://github.com/mfriedenhagen/jacoco-multimodule</url>            
+    </scm>
     <modules>
+        <module>jmm-core</module>
         <module>jmm-webapp</module>
     </modules>
 </project>
