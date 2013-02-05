@@ -6,6 +6,6 @@
     App app = new App();
     Date date = app.getDate();
 %>
-<p>Date: <%= date %></p>
+<p>Date: XXX <%= app.getDate() %></p>
 </body>
 </html>

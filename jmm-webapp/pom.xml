@@ -13,7 +13,7 @@
         <dependency>
             <groupId>com.github.mfriedenhagen.jmm</groupId>
             <artifactId>jmm-core</artifactId>
-            <scope>runtime</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -51,6 +51,33 @@
         </dependency>
     </dependencies>    
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-jspc-maven-plugin</artifactId>
+                <version>9.0.0.RC0</version>            
+                <executions>
+                    <execution>
+                        <id>jspc</id>
+                        <goals>
+                            <goal>jspc</goal>
+                        </goals>
+                        <configuration>
+                            <keepSources>true</keepSources>
+                            <verbose>true</verbose>                            
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+        </plugins>
         <finalName>jmm-webapp</finalName>
     </build>
     <properties>
