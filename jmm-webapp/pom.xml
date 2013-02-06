@@ -24,7 +24,7 @@
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
             <version>${org.apache.tomcat.version}</version>
-            <scope>test</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -49,38 +49,92 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-    </dependencies>    
+    </dependencies>
     <build>
         <plugins>
             <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-jspc-maven-plugin</artifactId>
-                <version>9.0.0.RC0</version>            
+                <groupId>org.codehaus.mojo.jspc</groupId>
+                <artifactId>jspc-maven-plugin</artifactId>
+                <version>${jspc-maven-plugin.version}</version>
                 <executions>
                     <execution>
-                        <id>jspc</id>
                         <goals>
-                            <goal>jspc</goal>
+                            <goal>compile</goal>
                         </goals>
-                        <configuration>
-                            <keepSources>true</keepSources>
-                            <verbose>true</verbose>                            
-                        </configuration>
                     </execution>
                 </executions>
-            </plugin>            
+
+                <!-- Use the Tomcat 6 JSP compiler but use tomcat 7 dependencies,
+                see http://stackoverflow.com/questions/8931007/jsp-on-tomcat-7-fails-with-noclassdeffounderror-lorg-apache-annotationprocessor -->
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.tomcat</groupId>
+                        <artifactId>tomcat-jasper</artifactId>
+                        <version>${org.apache.tomcat.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.eclipse.jdt.core.compiler</groupId>
+                        <artifactId>ecj</artifactId>
+                        <version>3.5.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.codehaus.mojo.jspc</groupId>
+                        <artifactId>jspc-compiler-tomcat6</artifactId>
+                        <version>${jspc-maven-plugin.version}</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>org.apache.tomcat</groupId>
+                                <artifactId>jasper</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.apache.tomcat</groupId>
+                                <artifactId>jasper-el</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.apache.tomcat</groupId>
+                                <artifactId>jasper-jdt</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.apache.tomcat</groupId>
+                                <artifactId>servlet-api</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.apache.tomcat</groupId>
+                                <artifactId>jsp-api</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.apache.tomcat</groupId>
+                                <artifactId>el-api</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.apache.tomcat</groupId>
+                                <artifactId>annotations-api</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                </dependencies>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
                 <configuration>
                     <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <webXml>${basedir}/target/jspweb.xml</webXml>
                 </configuration>
             </plugin>
         </plugins>
         <finalName>jmm-webapp</finalName>
     </build>
     <properties>
-        <org.apache.tomcat.version>7.0.35</org.apache.tomcat.version>
+        <!-- use 7.0.34 until https://issues.apache.org/bugzilla/show_bug.cgi?id=54440 is fixed. -->
+        <org.apache.tomcat.version>7.0.34</org.apache.tomcat.version>
+        <jspc-maven-plugin.version>2.0-alpha-3</jspc-maven-plugin.version>
     </properties>
 </project>
