@@ -12,10 +12,6 @@
     <version>1.0-SNAPSHOT</version>
     <name>jacoco-multimodule :: Parent</name>
     <url>https://github.com/mfriedenhagen/jacoco-multimodule</url>
-    <properties>
-        <oneandone.java.source>1.7</oneandone.java.source>
-        <oneandone.java.target>1.7</oneandone.java.target>
-    </properties>
     <issueManagement>
         <system>github</system>
         <url>https://github.com/mfriedenhagen/jacoco-multimodule/issues</url>
@@ -23,7 +19,7 @@
     <scm>
         <connection>scm:git:git://github.com/mfriedenhagen/jacoco-multimodule.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/mfriedenhagen/jacoco-multimodule.git</developerConnection>
-        <url>https://github.com/mfriedenhagen/jacoco-multimodule</url>            
+        <url>https://github.com/mfriedenhagen/jacoco-multimodule</url>
     </scm>
     <build>
         <plugins>
