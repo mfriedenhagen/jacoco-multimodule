@@ -46,4 +46,8 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <properties>
+        <pmd.excludeFromFailureFile>${user.dir}/src/conf/pmd-exclude.properties</pmd.excludeFromFailureFile>
+        <pmd.verbose>true</pmd.verbose>
+    </properties>
 </project>
