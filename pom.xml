@@ -46,8 +46,18 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <properties>
-        <pmd.excludeFromFailureFile>${user.dir}/src/conf/pmd-exclude.properties</pmd.excludeFromFailureFile>
-        <pmd.verbose>true</pmd.verbose>
-    </properties>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>${maven-pmd-plugin.version}</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/jsp/*_jsp.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
