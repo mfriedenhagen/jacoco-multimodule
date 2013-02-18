@@ -1,11 +1,18 @@
 <%@page import="com.github.mfriedenhagen.jmm.core.App,java.util.Date" %>
 <html>
 <body>
-<h2>Hello World!</h2>
 <%
-    App app = new App();
-    Date date = app.getDate();
+    final App app = new App();
+    final Date date = app.getDate();
+    final String nameFromParameter = request.getParameter("name");
+    final String name;
+    if (nameFromParameter == null) {
+        name = "World";
+    } else {
+        name = nameFromParameter;
+    }
 %>
-<p>Date: XXX <%= app.getDate() %></p>
+<h2>Hello <%= name %>!</h2>
+<p>Date: <%= app.getDate() %></p>
 </body>
 </html>

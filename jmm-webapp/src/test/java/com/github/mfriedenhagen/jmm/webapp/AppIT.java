@@ -7,7 +7,9 @@ import java.net.URL;
 import javax.servlet.ServletException;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
+import static org.hamcrest.CoreMatchers.containsString;
 import org.junit.After;
+import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -37,7 +39,7 @@ public class AppIT {
     public void shutdownWebdriver() {
         driver.close();
     }
-    
+
     @After
     public void shutdownTomcat() throws LifecycleException {
         tomcat.stop();
@@ -45,10 +47,20 @@ public class AppIT {
     }
 
     @Test
-    public void justATest() throws MalformedURLException, IOException {
-        final int port = tomcat.getConnector().getLocalPort();        
-        final URL url = new URL("http://localhost:" + port + "/index.jsp");
+    public void testNoNameGiven() throws MalformedURLException, IOException {
+        checkOutput("", "Hello World!");
+    }
+
+    @Test
+    public void testANameGiven() throws MalformedURLException, IOException {
+        checkOutput("?name=Mirko", "Hello Mirko!");
+    }
+
+    void checkOutput(final String queryString, final String needle) throws MalformedURLException {
+        final int port = tomcat.getConnector().getLocalPort();
+        final URL url = new URL("http://localhost:" + port + "/index.jsp" + queryString);
         driver.get(url.toString());
-        System.err.println(driver.getPageSource());
+        final String hayStack = driver.getPageSource();
+        assertThat(hayStack, containsString(needle));
     }
 }
