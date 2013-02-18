@@ -8,6 +8,8 @@
     final String name;
     if (nameFromParameter == null) {
         name = "World";
+    } else if (nameFromParameter.equals("Peter")) {
+        throw new IllegalArgumentException("'Peter' is not an allowed name");
     } else {
         name = nameFromParameter;
     }

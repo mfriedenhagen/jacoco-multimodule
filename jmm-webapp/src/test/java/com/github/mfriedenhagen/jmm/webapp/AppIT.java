@@ -56,6 +56,11 @@ public class AppIT {
         checkOutput("?name=Mirko", "Hello Mirko!");
     }
 
+    @Test
+    public void testAnInvalidName() throws MalformedURLException, IOException {
+        checkOutput("?name=Peter", "'Peter' is not an allowed name");
+    }
+
     void checkOutput(final String queryString, final String needle) throws MalformedURLException {
         final int port = tomcat.getConnector().getLocalPort();
         final URL url = new URL("http://localhost:" + port + "/index.jsp" + queryString);
