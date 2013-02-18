@@ -21,6 +21,9 @@
         <developerConnection>scm:git:ssh://git@github.com/mfriedenhagen/jacoco-multimodule.git</developerConnection>
         <url>https://github.com/mfriedenhagen/jacoco-multimodule</url>
     </scm>
+    <properties>
+        <maven-license-plugin.header>${user.dir}/src/conf/license-header.txt</maven-license-plugin.header>
+    </properties>
     <modules>
         <module>jmm-core</module>
         <module>jmm-webapp</module>
