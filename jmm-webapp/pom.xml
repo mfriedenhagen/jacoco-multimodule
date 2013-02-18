@@ -16,11 +16,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
             <version>${org.apache.tomcat.version}</version>
@@ -39,14 +34,26 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jdt.core.compiler</groupId>
-            <artifactId>ecj</artifactId>
-            <version>3.7.2</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-htmlunit-driver</artifactId>
+            <version>${selenium.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>${selenium.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.htmlunit</groupId>
+            <artifactId>htmlunit</artifactId>
+            <version>2.11</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -75,7 +82,7 @@
                     <dependency>
                         <groupId>org.eclipse.jdt.core.compiler</groupId>
                         <artifactId>ecj</artifactId>
-                        <version>3.5.1</version>
+                        <version>3.7.2</version>
                     </dependency>
                     <dependency>
                         <groupId>org.codehaus.mojo.jspc</groupId>
@@ -136,5 +143,6 @@
         <!-- use 7.0.34 until https://issues.apache.org/bugzilla/show_bug.cgi?id=54440 is fixed. -->
         <org.apache.tomcat.version>7.0.34</org.apache.tomcat.version>
         <jspc-maven-plugin.version>2.0-alpha-3</jspc-maven-plugin.version>
+        <selenium.version>2.29.1</selenium.version>
     </properties>
 </project>
