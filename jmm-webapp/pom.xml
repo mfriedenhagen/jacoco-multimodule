@@ -170,6 +170,20 @@
         </plugins>
         <finalName>jmm-webapp</finalName>
     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>${maven-pmd-plugin.version}</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/jsp/*_jsp.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
     <properties>
         <!-- use 7.0.34 until https://issues.apache.org/bugzilla/show_bug.cgi?id=54440 is fixed. -->
         <org.apache.tomcat.version>7.0.34</org.apache.tomcat.version>
