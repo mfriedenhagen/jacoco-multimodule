@@ -1,4 +1,8 @@
-<%@page import="com.github.mfriedenhagen.jmm.core.App,java.util.Date" %>
+<%@page language="java"
+        contentType="text/html; charset=utf-8"
+        pageEncoding="utf-8"
+        import="com.github.mfriedenhagen.jmm.core.App,java.util.Date" %>
+<!DOCTYPE html>
 <html>
 <body>
 <%
