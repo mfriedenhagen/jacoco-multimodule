@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FindBugsFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:noNamespaceSchemaLocation="http://findbugs.googlecode.com/svn/trunk/findbugs/etc/bugcollection.xsd">
+    <!-- Instance variables created by JSP compiler -->
+    <Match>
+        <Class name="~jsp\.index_jsp"/>
+        <Bug pattern="MTIA_SUSPECT_SERVLET_INSTANCE_FIELD"/>
+    </Match>
+    <Match>
+        <Class name="~jsp\.index_jsp"/>
+        <Method name="_jspService"/>
+        <Bug pattern="XSS_REQUEST_PARAMETER_TO_JSP_WRITER"/>
+    </Match>
+</FindBugsFilter>

@@ -15,6 +15,7 @@
             <artifactId>jmm-core</artifactId>
             <scope>compile</scope>
         </dependency>
+        <!-- Tomcat -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
@@ -33,6 +34,7 @@
             <version>${org.apache.tomcat.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -189,5 +191,6 @@
         <org.apache.tomcat.version>7.0.34</org.apache.tomcat.version>
         <jspc-maven-plugin.version>2.0-alpha-3</jspc-maven-plugin.version>
         <selenium.version>2.29.1</selenium.version>
+        <findbugs-maven-plugin.excludeFilterFile>src/conf/findbugs-exclude.xml</findbugs-maven-plugin.excludeFilterFile>
     </properties>
 </project>
