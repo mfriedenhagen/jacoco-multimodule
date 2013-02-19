@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright Mirko Friedenhagen, https://github.com/mfriedenhagen/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
