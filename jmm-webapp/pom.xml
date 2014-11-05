@@ -178,11 +178,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${maven-pmd-plugin.version}</version>
-                <!--configuration>
+                <configuration>
                     <excludes>
                         <exclude>**/jsp/*_jsp.java</exclude>
                     </excludes>
-                </configuration-->
+                </configuration>
             </plugin>
         </plugins>
     </reporting>
